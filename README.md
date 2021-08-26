@@ -1,7 +1,3 @@
-# Template for my [Go Board](https://www.nandland.com/goboard/introduction.html) projects
+# Bouncing ball
 
-To build the project and send bitstream to the FPGA board just type:
-
-```sh
-make && make install
-```
+This project is part of my pong game implementation.
