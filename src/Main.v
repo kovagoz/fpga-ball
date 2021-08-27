@@ -41,9 +41,9 @@ module Main(
   );
 
   Ball ball(
+    .i_Clk(i_Clk),
     .i_HSync_Pos(w_HSync_Pos),
     .i_VSync_Pos(w_VSync_Pos),
-    .i_VSync(o_VGA_VSync),
     .o_Video(w_Video_Ball)
   );
 
