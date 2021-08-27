@@ -17,7 +17,11 @@ module Vga(
   output [2:0] o_Blue,
 
   output [9:0] o_HPos,
-  output [9:0] o_VPos);
+  output [9:0] o_VPos,
+
+  output       o_HBlank,
+  output       o_HReset,
+  output       o_VReset);
 
   SyncCounter sc0(
     .i_Clk(i_Clk),
@@ -36,5 +40,9 @@ module Vga(
   assign o_Red   = (`IS_VISIBLE(o_HPos, o_VPos) && i_Video) ? -1 : 0;
   assign o_Green = (`IS_VISIBLE(o_HPos, o_VPos) && i_Video) ? -1 : 0;
   assign o_Blue  = (`IS_VISIBLE(o_HPos, o_VPos) && i_Video) ? -1 : 0;
+
+  assign o_HBlank = o_HPos > `H_VISIBLE_AREA;
+  assign o_HReset = o_HPos == 1;
+  assign o_VReset = o_VPos == 1 && o_HPos == 1;
 
 endmodule
